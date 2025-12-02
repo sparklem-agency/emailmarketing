@@ -1,518 +1,34 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marketing Services - Campaign</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Reset styles for email clients */
-        body,
-        table,
-        td,
-        div,
-        p,
-        a {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            vertical-align: baseline;
-        }
-
-        body {
-            width: 100% !important;
-            height: 100%;
-            line-height: 1.4;
-            background-color: #f8fafc;
-            -webkit-text-size-adjust: none;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-        }
-
-        table {
-            border-collapse: collapse;
-            mso-table-lspace: 0pt;
-            mso-table-rspace: 0pt;
-        }
-
-        img {
-            border: 0;
-            height: auto;
-            line-height: 100%;
-            outline: none;
-            text-decoration: none;
-            -ms-interpolation-mode: bicubic;
-        }
-
-        /* Main styles */
-        .container {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #ffffff;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #0269FF 0%, #0255d4 100%);
-            color: #ffffff;
-            padding: 25px 30px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 200px;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-        }
-
-        .header::after {
-            content: "";
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 150px;
-            height: 150px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            display: inline-block;
-            vertical-align: middle;
-            position: relative;
-            z-index: 2;
-        }
-
-        .logo i {
-            margin-right: 8px;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, #0269FF 0%, #0255d4 100%);
-            color: #ffffff;
-            padding: 50px 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTIwMCA4MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0iIzAwNWZjYSI+PGNpcmNsZSBjeD0iNDAwIiBjeT0iNDAwIiByPSIxMDAiLz48Y2lyY2xlIGN4PSI4MDAiIGN5PSIyMDAiIHI9IjE1MCIvPjxjaXJjbGUgY3g9IjEwMDAiIGN5PSI2MDAiIHI9IjIwMCIvPjwvZz48L3N2Zz4=');
-            opacity: 0.1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-title {
-            font-size: 32px;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 15px;
-        }
-
-        .hero-subtitle {
-            font-size: 18px;
-            margin-bottom: 25px;
-            opacity: 0.9;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: #ffffff;
-            color: #0269FF;
-            padding: 14px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: #ffffff;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            margin-left: 10px;
-        }
-
-        .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .content {
-            padding: 40px 30px;
-        }
-
-        .section-title {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #0b0b0b;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .section-title::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(to right, #0269FF, #0255d4);
-            border-radius: 3px;
-        }
-
-        .two-column {
-            width: 100%;
-        }
-
-        .column {
-            width: 48%;
-            display: inline-block;
-            vertical-align: top;
-        }
-
-        .feature-list {
-            margin: 0 0 20px 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        .feature-list li {
-            margin-bottom: 12px;
-            font-size: 14px;
-            line-height: 1.5;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .feature-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #0269FF;
-            font-weight: bold;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
-            border-left: 4px solid #0269FF;
-            padding: 25px;
-            margin: 25px 0;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 0 4px 12px rgba(2, 105, 255, 0.08);
-        }
-
-        .icon-box {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: rgba(2, 105, 255, 0.1);
-            border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            margin-right: 10px;
-            vertical-align: middle;
-        }
-
-        .icon-box i {
-            color: #0269FF;
-        }
-
-        .pricing {
-            background: linear-gradient(135deg, #f8fbff 0%, #e6f0ff 100%);
-            padding: 40px 30px;
-            text-align: center;
-        }
-
-        .pricing-steps {
-            display: flex;
-            justify-content: space-between;
-            margin: 30px 0;
-        }
-
-        .step {
-            flex: 1;
-            text-align: center;
-            padding: 0 15px;
-            position: relative;
-        }
-
-        .step-number {
-            width: 40px;
-            height: 40px;
-            background: #0269FF;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            font-weight: bold;
-        }
-
-        .step:not(:last-child)::after {
-            content: "";
-            position: absolute;
-            top: 20px;
-            right: 0;
-            width: 50%;
-            height: 2px;
-            background: #0269FF;
-            opacity: 0.3;
-        }
-
-        .testimonial {
-            position: relative;
-            background: #ffffff;
-            padding: 40px 35px;
-            border-radius: 16px;
-            margin: 30px 0;
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
-            border-left: 6px solid #0269FF;
-            animation: fadeIn 0.6s ease-out;
-            overflow: hidden;
-        }
-
-        /* Elegant faint gradient glow */
-        .testimonial::before {
-            content: "";
-            position: absolute;
-            top: -20%;
-            right: -20%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(2, 105, 255, 0.15), transparent 60%);
-            z-index: 0;
-        }
-
-        .testimonial-quote {
-            font-size: 100px;
-            line-height: 0.4;
-            color: #0269FF;
-            opacity: 0.15;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            pointer-events: none;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            color: #222;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonial-author {
-            font-weight: 700;
-            color: #0269FF;
-            font-size: 1.05rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonial-author span {
-            display: block;
-            font-weight: 400;
-            color: #555;
-            font-size: 0.9rem;
-            margin-top: 3px;
-        }
-
-
-        .footer {
-            padding: 30px;
-            font-size: 12px;
-            color: #666666;
-            background-color: #ffffff;
-            text-align: center;
-        }
-
-        .footer a {
-            color: #0269FF;
-            text-decoration: underline;
-        }
-
-        .social-links {
-            margin: 20px 0;
-        }
-
-        .social-links a {
-            display: inline-block;
-            width: 36px;
-            height: 36px;
-            background: #f0f4f8;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 36px;
-            margin: 0 5px;
-            color: #0269FF;
-            text-decoration: none;
-        }
-
-        /* Mobile styles */
-        @media only screen and (max-width: 600px) {
-            .container {
-                width: 100% !important;
-            }
-
-            .column {
-                display: block !important;
-                width: 100% !important;
-                padding: 0 !important;
-            }
-
-            .hero-title {
-                font-size: 26px !important;
-            }
-
-            .hero-subtitle {
-                font-size: 16px !important;
-            }
-
-            .content,
-            .header,
-            .hero,
-            .pricing,
-            .footer {
-                padding-left: 20px !important;
-                padding-right: 20px !important;
-            }
-
-            .btn-secondary {
-                display: block;
-                margin: 10px 0 0 0 !important;
-            }
-
-            .pricing-steps {
-                flex-direction: column;
-            }
-
-            .step {
-                margin-bottom: 30px;
-            }
-
-            .step:not(:last-child)::after {
-                display: none;
-            }
-        }
-    </style>
 </head>
 
-<body>
-    <!-- Main container -->
-    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+<body
+    style="margin:0; padding:0; background-color:#f8fafc; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f8fafc">
         <tr>
-            <td align="center" style="padding: 30px 0;">
-                <!-- Email wrapper -->
-                <table role="presentation" class="container" width="600" cellspacing="0" cellpadding="0" border="0"
-                    align="center"
-                    style="border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+            <td align="center" style="padding:30px 0;">
+                <!-- Main container -->
+                <table width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff"
+                    style="border-radius:12px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.08);">
                     <!-- Header -->
                     <tr>
-                        <td class="header">
-                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <td bgcolor="#0269FF" style="padding:25px 30px; color:#ffffff; position:relative;">
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
                                 <tr>
-                                    <td width="50%" align="left"
-                                        style="vertical-align: middle; position: relative; z-index: 2;">
-                                        <div class="logo">
-
-                                            <svg style="color: white;height:30px" version="1.0"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1098.000000 232.000000"
-                                                preserveAspectRatio="xMidYMid meet" class="w-32 md:w-52 text-primary">
-
-                                                <g transform="translate(0.000000,232.000000) scale(0.100000,-0.100000)"
-                                                    fill="currentColor" stroke="none">
-                                                    <path fill="currentColor" d="M654 2309 c-157 -23 -307 -100 -425 -218 -120 -120 -192 -263 -218
--429 -15 -94 -15 -894 0 -998 42 -305 261 -551 567 -637 74 -21 94 -21 577
--22 567 0 567 0 730 80 162 79 279 197 356 361 73 155 74 159 74 709 0 559 -2
-577 -80 733 -101 202 -264 337 -485 403 -73 22 -90 23 -555 25 -264 1 -507 -2
--541 -7z m1167 -471 c8 -19 14 -68 14 -118 0 -75 -3 -91 -28 -132 -52 -89 -82
--106 -591 -334 -263 -118 -482 -214 -487 -214 -5 0 -16 26 -25 57 -31 107 4
-224 92 302 41 37 131 81 519 257 259 116 475 212 481 213 6 1 18 -14 25 -31z
-m-190 -605 c21 -60 16 -160 -11 -221 -46 -107 -74 -123 -605 -361 -379 -170
--479 -211 -486 -200 -16 26 -29 84 -29 135 0 82 26 142 89 203 53 52 80 66
-526 267 259 116 478 212 487 213 11 1 21 -12 29 -36z" />
-                                                    <path d="M6820 1195 l0 -635 130 0 130 0 0 190 0 190 33 -1 c29 0 44 -15 186
--190 l153 -189 165 0 164 0 -201 239 c-110 131 -200 241 -200 245 0 4 81 94
-180 201 99 106 180 196 180 199 0 3 -69 6 -153 6 l-152 0 -140 -155 c-133
--147 -142 -155 -177 -155 l-38 0 0 345 0 345 -130 0 -130 0 0 -635z" />
-                                                    <path d="M7872 1298 c4 -476 7 -539 22 -588 26 -78 51 -109 114 -138 61 -28
-187 -40 286 -28 l56 7 0 98 0 98 -90 -1 c-73 -1 -92 2 -107 17 -17 16 -18 53
--21 542 l-3 525 -130 0 -131 0 4 -532z" />
-                                                    <path d="M9533 1813 c-10 -4 -13 -141 -13 -639 l0 -634 135 0 135 0 2 337 3
-338 118 -280 c65 -155 130 -295 144 -313 42 -54 96 -76 188 -76 92 0 146 22
-189 76 14 18 81 165 148 326 l123 294 3 -351 2 -351 135 0 135 0 0 635 0 634
--32 6 c-18 3 -96 5 -172 3 l-139 -3 -184 -475 c-100 -261 -189 -480 -197 -488
--12 -12 -16 -11 -29 9 -9 13 -95 229 -192 479 -97 250 -179 461 -182 468 -4 9
--44 12 -157 11 -83 0 -157 -3 -163 -6z" fill="currentColor" />
-                                                    <path d="M3145 1759 c-236 -35 -369 -144 -383 -315 -17 -219 115 -326 498
--404 239 -49 300 -80 300 -155 0 -43 -30 -79 -82 -100 -95 -38 -367 -29 -585
-21 -59 13 -109 24 -110 24 -2 0 -3 -51 -3 -114 l0 -113 78 -16 c159 -34 232
--41 417 -41 147 0 206 4 259 17 138 35 234 104 278 201 32 72 33 212 1 272
--62 116 -190 176 -533 249 -194 42 -253 83 -235 164 13 60 86 90 235 98 136 7
-296 -14 468 -63 22 -6 22 -6 22 108 l0 115 -97 22 c-177 39 -382 51 -528 30z" />
-                                                    <path d="M4281 1454 c-93 -20 -163 -58 -215 -115 -94 -105 -106 -186 -106
--731 l0 -398 130 0 130 0 0 215 c0 118 3 215 6 215 3 0 22 -13 42 -30 52 -41
-114 -61 212 -67 303 -18 450 132 450 463 0 206 -65 341 -198 408 -103 52 -311
-71 -451 40z m298 -214 c22 -13 49 -40 62 -64 22 -37 24 -53 24 -171 0 -118 -2
--134 -24 -171 -38 -66 -88 -89 -196 -89 -100 1 -135 13 -178 64 -63 75 -63
-316 0 392 46 54 95 70 200 64 51 -2 84 -10 112 -25z" />
-                                                    <path d="M5305 1456 c-44 -7 -97 -16 -118 -20 l-37 -7 0 -96 0 -96 48 7 c227
-31 372 31 440 -1 37 -18 62 -62 62 -110 l0 -28 -198 0 c-178 0 -204 -2 -271
--23 -139 -44 -202 -140 -188 -288 17 -178 160 -267 406 -251 99 6 161 25 214
-68 l37 30 0 -41 0 -40 131 0 131 0 -4 318 c-4 296 -5 321 -26 377 -42 114
--119 174 -257 200 -91 18 -259 18 -370 1z m395 -563 c0 -93 -58 -143 -182
--158 -133 -16 -218 21 -218 97 0 93 33 107 243 108 l157 0 0 -47z" />
-                                                    <path d="M6370 1464 c-191 -34 -253 -93 -271 -263 -5 -47 -9 -211 -9 -363 l0
--278 130 0 130 0 0 309 c0 173 4 321 10 335 19 52 50 61 212 60 l148 0 0 92
-c0 78 -3 93 -17 99 -20 8 -295 16 -333 9z" />
-                                                    <path d="M8727 1460 c-163 -28 -271 -117 -315 -260 -24 -78 -24 -313 0 -391
-38 -122 118 -199 246 -240 96 -30 264 -36 422 -15 188 25 170 12 170 123 0 85
--2 94 -17 89 -42 -13 -203 -27 -310 -27 -103 -1 -120 2 -167 25 -51 25 -82 64
--100 123 l-7 21 315 4 c372 4 349 -4 354 116 11 230 -99 384 -307 428 -71 15
--206 17 -284 4z m262 -218 c40 -29 62 -66 68 -110 l6 -42 -207 0 -208 0 7 33
-c25 116 116 166 260 145 27 -4 61 -16 74 -26z" />
-                                                </g>
-                                            </svg>
+                                    <td width="50%" align="left" valign="middle">
+                                        <div
+                                            style="font-size:24px; font-weight:bold;background-color: white;border-radius: 10px;width: fit-content;padding: 5px;">
+                                            <img src="https://sparklemagency.com/logo.png" alt="Sparklem Agency"
+                                                height="30" style="display:block; color:white;">
                                         </div>
                                     </td>
-                                    <td width="50%" align="right"
-                                        style="vertical-align: middle; position: relative; z-index: 2;">
-                                        <a href="sparklemagency.com"
-                                            style="color: #ffffff; text-decoration: none; font-size: 14px; background: rgba(255,255,255,0.2); padding: 6px 12px; border-radius: 4px;">View
+                                    <td width="50%" align="right" valign="middle">
+                                        <a href="https://sparklemagency.com"
+                                            style="color:#ffffff; text-decoration:none; font-size:14px; background:rgba(255,255,255,0.2); padding:6px 12px; border-radius:4px; display:inline-block;">View
                                             Online</a>
                                     </td>
                                 </tr>
@@ -522,52 +38,93 @@ c25 116 116 166 260 145 27 -4 61 -16 74 -26z" />
 
                     <!-- Hero section -->
                     <tr>
-                        <td class="hero">
-                            <div class="hero-content">
-                                <h1 class="hero-title">Tired of Junk Leads &amp; Low ROI?</h1>
-                                <p class="hero-subtitle">Get real engagement, real visibility, and real growth with our
-                                    data-driven marketing strategies.</p>
-                                <a href="https://sparklemagency.com/getting-started" class="btn">Book a Free Strategy
-                                    Call</a>
-                                <a href="https://sparklemagency.com/services" class="btn btn-secondary">Our Services</a>
-                                <p style="margin-top: 25px; font-size: 12px; opacity: 0.8;">Let's fix what your past
-                                    agencies couldn't.</p>
-                            </div>
+                        <td bgcolor="#0269FF" style="padding:50px 30px; color:#ffffff; text-align:center;">
+                            <h1 style="font-size:32px; font-weight:800; line-height:1.2; margin:0 0 15px 0; padding:0;">
+                                Tired of Junk Leads &amp; Low ROI?</h1>
+                            <p
+                                style="font-size:18px; line-height:1.5; margin:0 0 25px 0; padding:0; max-width:500px; margin-left:auto; margin-right:auto; opacity:0.9;">
+                                Get real engagement, real visibility, and real growth with our data-driven marketing
+                                strategies.
+                            </p>
+                            <a href="https://sparklemagency.com/getting-started"
+                                style="display:inline-block; background-color:#ffffff; color:#0269FF; padding:14px 30px; border-radius:50px; text-decoration:none; font-weight:bold; margin-top:10px; font-size:16px;">Book
+                                a Free Strategy Call</a>
+                            <br>
+                            <a href="https://sparklemagency.com/services"
+                                style="display:inline-block; background-color:transparent; color:#ffffff; border:2px solid rgba(255,255,255,0.3); padding:12px 28px; border-radius:50px; text-decoration:none; font-weight:bold; margin-top:10px; font-size:16px; margin-left:10px;">Our
+                                Services</a>
+                            <p style="margin-top:25px; font-size:12px; opacity:0.8;">Let's fix what your past agencies
+                                couldn't.</p>
                         </td>
                     </tr>
 
                     <!-- Content section -->
                     <tr>
-                        <td class="content">
-                            <h2 class="section-title">Everything You Expect From an Expert Marketing Partner</h2>
-                            <p style="margin-bottom: 25px; font-size: 15px; color: #555; line-height: 1.6;">Managed
-                                seamlessly for maximum impact and minimum hassle. We deliver measurable results, not
-                                empty promises.</p>
+                        <td style="padding:40px 30px;">
+                            <h2
+                                style="font-size:22px; font-weight:700; margin:0 0 20px 0; padding:0 0 10px 0; border-bottom:3px solid #0269FF; color:#0b0b0b;">
+                                Everything You Expect From an Expert Marketing Partner</h2>
+                            <p style="margin:0 0 25px 0; font-size:15px; color:#555; line-height:1.6;">
+                                Managed seamlessly for maximum impact and minimum hassle. We deliver measurable results,
+                                not empty promises.
+                            </p>
 
-                            <!-- FIXED TWO-COLUMN LAYOUT -->
-                            <table role="presentation" class="two-column" width="100%" cellspacing="0" cellpadding="0"
-                                border="0">
+                            <!-- Two columns -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
                                 <tr>
-                                    <td class="column" width="48%" style="padding-right: 4%; vertical-align: top;">
-                                        <ul class="feature-list">
-                                            <li>Lead Generation &amp; Funnel Setup</li>
-                                            <li>Performance Marketing (Meta Ads, Google Ads)</li>
-                                            <li>Brand Awareness &amp; Social Media Presence</li>
+                                    <td width="48%" valign="top" style="padding-right:4%;">
+                                        <ul style="margin:0 0 20px 0; padding:0; list-style:none;">
+                                            <li
+                                                style="margin-bottom:12px; font-size:14px; line-height:1.5; padding-left:25px; position:relative;">
+                                                <span
+                                                    style="position:absolute; left:0; color:#0269FF; font-weight:bold;">✓</span>
+                                                Lead Generation &amp; Funnel Setup
+                                            </li>
+                                            <li
+                                                style="margin-bottom:12px; font-size:14px; line-height:1.5; padding-left:25px; position:relative;">
+                                                <span
+                                                    style="position:absolute; left:0; color:#0269FF; font-weight:bold;">✓</span>
+                                                Performance Marketing (Meta Ads, Google Ads)
+                                            </li>
+                                            <li
+                                                style="margin-bottom:12px; font-size:14px; line-height:1.5; padding-left:25px; position:relative;">
+                                                <span
+                                                    style="position:absolute; left:0; color:#0269FF; font-weight:bold;">✓</span>
+                                                Brand Awareness &amp; Social Media Presence
+                                            </li>
                                         </ul>
                                     </td>
-                                    <td class="column" width="48%" style="vertical-align: top;">
-                                        <ul class="feature-list">
-                                            <li>Website Traffic &amp; Retargeting Strategy</li>
-                                            <li>Creative Strategy + Content Planning</li>
-                                            <li>Monthly Reports &amp; Data-Backed Optimization</li>
+                                    <td width="48%" valign="top">
+                                        <ul style="margin:0 0 20px 0; padding:0; list-style:none;">
+                                            <li
+                                                style="margin-bottom:12px; font-size:14px; line-height:1.5; padding-left:25px; position:relative;">
+                                                <span
+                                                    style="position:absolute; left:0; color:#0269FF; font-weight:bold;">✓</span>
+                                                Website Traffic &amp; Retargeting Strategy
+                                            </li>
+                                            <li
+                                                style="margin-bottom:12px; font-size:14px; line-height:1.5; padding-left:25px; position:relative;">
+                                                <span
+                                                    style="position:absolute; left:0; color:#0269FF; font-weight:bold;">✓</span>
+                                                Creative Strategy + Content Planning
+                                            </li>
+                                            <li
+                                                style="margin-bottom:12px; font-size:14px; line-height:1.5; padding-left:25px; position:relative;">
+                                                <span
+                                                    style="position:absolute; left:0; color:#0269FF; font-weight:bold;">✓</span>
+                                                Monthly Reports &amp; Data-Backed Optimization
+                                            </li>
                                         </ul>
                                     </td>
                                 </tr>
                             </table>
 
                             <p
-                                style="margin-top: 25px; font-weight: bold; font-size: 15px; color: #0b0b0b; background: #f8fbff; padding: 15px; border-radius: 8px; text-align: center;">
-                                <span class="icon-box"><i class="fas fa-bullseye"></i></span>
+                                style="margin:25px 0 0 0; font-weight:bold; font-size:15px; color:#0b0b0b; background:#f8fbff; padding:15px; border-radius:8px; text-align:center;">
+                                <span
+                                    style="display:inline-block; width:40px; height:40px; background:rgba(2,105,255,0.1); border-radius:50%; text-align:center; line-height:40px; margin-right:10px; vertical-align:middle;">
+                                    <span style="color:#0269FF;">✓</span>
+                                </span>
                                 You focus on business. We handle the marketing engine.
                             </p>
                         </td>
@@ -575,116 +132,193 @@ c25 116 116 166 260 145 27 -4 61 -16 74 -26z" />
 
                     <!-- Divider -->
                     <tr>
-                        <td style="padding: 0 30px;">
-                            <hr style="border: none; border-top: 1px solid #eef4ff; margin: 10px 0;">
+                        <td>
+                            <hr style="border:none; border-top:1px solid #eef4ff; margin:0 30px;">
                         </td>
                     </tr>
 
-                    <!-- Why choose us section -->
+                    <!-- Why choose us -->
                     <tr>
-                        <td class="content" style="padding-top: 0;">
-                            <h3 class="section-title">Why Brands Work With Us (and stay)</h3>
+                        <td style="padding:0 30px 40px 30px;">
+                            <h3
+                                style="font-size:22px; font-weight:700; margin:40px 0 20px 0; padding:0 0 10px 0; border-bottom:3px solid #0269FF; color:#0b0b0b;">
+                                Why Brands Work With Us (and stay)</h3>
 
-                            <div class="highlight-box">
-                                <p style="margin-bottom: 12px; font-size: 14px;"><span class="icon-box"><i
-                                            class="fas fa-users"></i></span> <strong>Dedicated team</strong> for both
-                                    service-based and product-based businesses.</p>
-                                <p style="margin-bottom: 12px; font-size: 14px;"><span class="icon-box"><i
-                                            class="fas fa-chart-line"></i></span> <strong>Experience across
-                                        industries</strong> — we understand different customer types.</p>
-                                <p style="margin-bottom: 12px; font-size: 14px;"><span class="icon-box"><i
-                                            class="fas fa-chess-knight"></i></span> <strong>Strategic approach</strong>
-                                    — no random posting or random ads.</p>
-                                <p style="margin-bottom: 12px; font-size: 14px;"><span class="icon-box"><i
-                                            class="fas fa-map-marked-alt"></i></span> <strong>We map the customer
-                                        journey</strong> — triggers, objections, and buying behaviour.</p>
-                                <p style="margin-bottom: 0; font-size: 14px;"><span class="icon-box"><i
-                                            class="fas fa-chart-bar"></i></span> <strong>Measured campaigns</strong> —
-                                    we study, plan, execute, measure, improve.</p>
-                            </div>
-
-                            <div class="testimonial">
-                                <div class="testimonial-quote">“</div>
-                                <p class="testimonial-text">
-                                    This agency transformed our hospital's online presence. Patient inquiries increased
-                                    noticeably after they ran targeted ad campaigns related various OPD.
-                                    Professional, ethical, and results-driven
-                                </p>
-
-
-                                <p class="testimonial-author">Mr.Rajib Roy <span>COO, Unakoti Multispecialty
-                                        Hospital
+                            <div
+                                style="background:#f8fbff; border-left:4px solid #0269FF; padding:25px; margin:25px 0; border-radius:0 8px 8px 0;">
+                                <p style="margin:0 0 12px 0; font-size:14px;">
+                                    <span
+                                        style="display:inline-block; width:40px; height:40px; background:rgba(2,105,255,0.1); border-radius:50%; text-align:center; line-height:40px; margin-right:10px; vertical-align:middle;">
+                                        <span style="color:#0269FF;">👥</span>
                                     </span>
+                                    <strong>Dedicated team</strong> for both service-based and product-based businesses.
+                                </p>
+                                <p style="margin:0 0 12px 0; font-size:14px;">
+                                    <span
+                                        style="display:inline-block; width:40px; height:40px; background:rgba(2,105,255,0.1); border-radius:50%; text-align:center; line-height:40px; margin-right:10px; vertical-align:middle;">
+                                        <span style="color:#0269FF;">📈</span>
+                                    </span>
+                                    <strong>Experience across industries</strong> — we understand different customer
+                                    types.
+                                </p>
+                                <p style="margin:0 0 12px 0; font-size:14px;">
+                                    <span
+                                        style="display:inline-block; width:40px; height:40px; background:rgba(2,105,255,0.1); border-radius:50%; text-align:center; line-height:40px; margin-right:10px; vertical-align:middle;">
+                                        <span style="color:#0269FF;">♟️</span>
+                                    </span>
+                                    <strong>Strategic approach</strong> — no random posting or random ads.
+                                </p>
+                                <p style="margin:0 0 12px 0; font-size:14px;">
+                                    <span
+                                        style="display:inline-block; width:40px; height:40px; background:rgba(2,105,255,0.1); border-radius:50%; text-align:center; line-height:40px; margin-right:10px; vertical-align:middle;">
+                                        <span style="color:#0269FF;">🗺️</span>
+                                    </span>
+                                    <strong>We map the customer journey</strong> — triggers, objections, and buying
+                                    behaviour.
+                                </p>
+                                <p style="margin:0; font-size:14px;">
+                                    <span
+                                        style="display:inline-block; width:40px; height:40px; background:rgba(2,105,255,0.1); border-radius:50%; text-align:center; line-height:40px; margin-right:10px; vertical-align:middle;">
+                                        <span style="color:#0269FF;">📊</span>
+                                    </span>
+                                    <strong>Measured campaigns</strong> — we study, plan, execute, measure, improve.
                                 </p>
                             </div>
 
+                            <div
+                                style="background:#ffffff; padding:30px; border-radius:8px; margin:30px 0; box-shadow:0 5px 15px rgba(0,0,0,0.05); border-left:6px solid #0269FF;">
+                                <p
+                                    style="font-size:100px; line-height:0.4; color:#0269FF; opacity:0.15; margin:0; padding:0;">
+                                    "</p>
+                                <p
+                                    style="font-style:italic; color:#222; font-size:16px; margin:0 0 20px 0; padding:0; line-height:1.5;">
+                                    This agency transformed our hospital's online presence. Patient inquiries increased
+                                    noticeably after they ran targeted ad campaigns related various OPD. Professional,
+                                    ethical, and results-driven
+                                </p>
+                                <p style="font-weight:700; color:#0269FF; font-size:16px; margin:0; padding:0;">
+                                    Mr.Rajib Roy<br>
+                                    <span style="font-weight:400; color:#555; font-size:14px;">COO, Unakoti
+                                        Multispecialty Hospital</span>
+                                </p>
+                            </div>
 
                             <p
-                                style="margin-top:15px; font-size:14px; font-weight:bold; color:#1a1a1a; text-align:center; background:#e3f2ff; padding:14px; border-radius:8px; border-left:4px solid #0077cc;">
+                                style="margin:15px 0 0 0; font-size:14px; font-weight:bold; color:#1a1a1a; text-align:center; background:#e3f2ff; padding:14px; border-radius:8px;">
                                 We don't claim to be the best. We claim to be responsible.
                             </p>
-
                         </td>
                     </tr>
 
                     <!-- Pricing section -->
                     <tr>
-                        <td class="pricing">
-                            <h3 class="section-title" style="text-align: center;">Pricing That Fits Your Budget</h3>
-                            <p
-                                style="margin-bottom: 20px; font-size: 15px; line-height: 1.6; max-width: 500px; margin-left: auto; margin-right: auto;">
+                        <td bgcolor="#f8fbff" style="padding:40px 30px; text-align:center;">
+                            <h3
+                                style="font-size:22px; font-weight:700; margin:0 0 20px 0; padding:0 0 10px 0; border-bottom:3px solid #0269FF; color:#0b0b0b; display:inline-block;">
+                                Pricing That Fits Your Budget</h3>
+                            <p style="margin:0 auto 20px auto; font-size:15px; line-height:1.6; max-width:500px;">
                                 We do not follow one-size-fits-all packages. Every business has different targets,
-                                demand, and marketing goals.</p>
+                                demand, and marketing goals.
+                            </p>
 
-                            <div class="pricing-steps">
-                                <div class="step">
-                                    <div class="step-number">1</div>
-                                    <p style="font-size: 14px;">Understand your business model</p>
-                                </div>
-                                <div class="step">
-                                    <div class="step-number">2</div>
-                                    <p style="font-size: 14px;">Identify short-term &amp; long-term goals</p>
-                                </div>
-                                <div class="step">
-                                    <div class="step-number">3</div>
-                                    <p style="font-size: 14px;">Evaluate audience &amp; competition</p>
-                                </div>
-                                <div class="step">
-                                    <div class="step-number">4</div>
-                                    <p style="font-size: 14px;">Build customized pricing plan</p>
-                                </div>
-                            </div>
+                            <!-- Steps -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:30px 0;">
+                                <tr>
+                                    <td width="25%" valign="top" style="padding:0 10px;">
+                                        <div
+                                            style="width:40px; height:40px; background:#0269FF; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 15px auto; font-weight:bold;">
+                                            1</div>
+                                        <p style="font-size:14px; margin:0; line-height:1.4;">Understand your business
+                                            model</p>
+                                    </td>
+                                    <td width="25%" valign="top" style="padding:0 10px;">
+                                        <div
+                                            style="width:40px; height:40px; background:#0269FF; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 15px auto; font-weight:bold;">
+                                            2</div>
+                                        <p style="font-size:14px; margin:0; line-height:1.4;">Identify short-term &amp;
+                                            long-term goals</p>
+                                    </td>
+                                    <td width="25%" valign="top" style="padding:0 10px;">
+                                        <div
+                                            style="width:40px; height:40px; background:#0269FF; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 15px auto; font-weight:bold;">
+                                            3</div>
+                                        <p style="font-size:14px; margin:0; line-height:1.4;">Evaluate audience &amp;
+                                            competition</p>
+                                    </td>
+                                    <td width="25%" valign="top" style="padding:0 10px;">
+                                        <div
+                                            style="width:40px; height:40px; background:#0269FF; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 15px auto; font-weight:bold;">
+                                            4</div>
+                                        <p style="font-size:14px; margin:0; line-height:1.4;">Build customized pricing
+                                            plan</p>
+                                    </td>
+                                </tr>
+                            </table>
 
                             <p
-                                style="margin-bottom: 25px; font-size: 14px; font-weight: bold; background: white; padding: 12px; border-radius: 6px; display: inline-block;">
-                                We keep it simple: Marketing works only when the budget matches the goal.</p>
-
-                            <a href="https://sparklemagency.com/getting-started" class="btn"
-                                style="background: #0269FF; color: #ffffff;">Get Started</a>
+                                style="margin:0 0 25px 0; font-size:14px; font-weight:bold; background:white; padding:12px; border-radius:6px; display:inline-block;">
+                                We keep it simple: Marketing works only when the budget matches the goal.
+                            </p>
+                            <br>
+                            <a href="https://sparklemagency.com/getting-started"
+                                style="display:inline-block; background:#0269FF; color:#ffffff; padding:14px 30px; border-radius:50px; text-decoration:none; font-weight:bold; margin-top:10px; font-size:16px;">Get
+                                Started</a>
                         </td>
                     </tr>
 
                     <!-- Footer -->
                     <tr>
-                        <td class="footer">
-                            <div class="social-links">
-                                <a href="https://www.facebook.com/Sparklemagency"><i class="fab fa-facebook-f"></i></a>
-                                <a href="https://x.com/AgencySparklem"><i class="fab fa-twitter"></i></a>
-                                <a href="https://www.instagram.com/sparklemagency/"><i class="fab fa-instagram"></i></a>
-                                <a href="https://www.linkedin.com/company/104787846"><i
-                                        class="fab fa-linkedin-in"></i></a>
-                                <a href="https://www.youtube.com/channel/UCA6zPUf7dSXBnFPEXf04I8g"><i
-                                        class="fab fa-youtube"></i></a>
+                        <td style="padding:30px; text-align:center; font-size:12px; color:#666;">
+                            <div style="margin:20px 0;">
+                                <!-- Social media icons using Google Material Icons CDN -->
+                                <!-- Facebook -->
+                                <a href="https://www.facebook.com/Sparklemagency"
+                                    style="display:inline-block; width:36px; height:36px; background:#f0f4f8; border-radius:50%; text-align:center; margin:0 5px;">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook"
+                                        width="20" height="20" style="display:block; margin:8px auto;">
+                                </a>
+
+                                <!-- Twitter/X -->
+                                <a href="https://x.com/AgencySparklem"
+                                    style="display:inline-block; width:36px; height:36px; background:#f0f4f8; border-radius:50%; text-align:center; margin:0 5px;">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" alt="Twitter"
+                                        width="20" height="20" style="display:block; margin:8px auto;">
+                                </a>
+
+                                <!-- Instagram -->
+                                <a href="https://www.instagram.com/sparklemagency/"
+                                    style="display:inline-block; width:36px; height:36px; background:#f0f4f8; border-radius:50%; text-align:center; margin:0 5px;">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram"
+                                        width="20" height="20" style="display:block; margin:8px auto;">
+                                </a>
+
+                                <!-- LinkedIn -->
+                                <a href="https://www.linkedin.com/company/104787846"
+                                    style="display:inline-block; width:36px; height:36px; background:#f0f4f8; border-radius:50%; text-align:center; margin:0 5px;">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"
+                                        width="20" height="20" style="display:block; margin:8px auto;">
+                                </a>
+
+                                <!-- YouTube -->
+                                <a href="https://www.youtube.com/channel/UCA6zPUf7dSXBnFPEXf04I8g"
+                                    style="display:inline-block; width:36px; height:36px; background:#f0f4f8; border-radius:50%; text-align:center; margin:0 5px;">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/174/174883.png" alt="YouTube"
+                                        width="20" height="20" style="display:block; margin:8px auto;">
+                                </a>
                             </div>
 
-                            <p style="margin-bottom: 10px;">Have questions? Reply to this email or <a
-                                    href="https://sparklemagency.com/getting-started">book a
-                                    call</a>.</p>
-                            <p style="margin-bottom: 10px;">Sparklemagency · Kumarghat · Unakoti Tripura ·India <a
-                                    href="mailto:talk@sparklemagency.com">talk@sparklemagency.com</a></p>
-                            <p style="margin: 0; color: #9aa7c7; font-size: 11px;">You're receiving this because you
-                                requested information about our services. <a href="#"
-                                    style="color: #9aa7c7;">Unsubscribe</a>
+                            <p style="margin:0 0 10px 0; padding:0;">Have questions? Reply to this email or <a
+                                    href="https://sparklemagency.com/getting-started"
+                                    style="color:#0269FF; text-decoration:underline;">book a call</a>.</p>
+                            <p style="margin:0 0 10px 0; padding:0;">Sparklemagency · Kumarghat · Unakoti Tripura ·
+                                India<br>
+                                <a href="mailto:talk@sparklemagency.com"
+                                    style="color:#0269FF; text-decoration:underline;">talk@sparklemagency.com</a>
+                            </p>
+                            <p style="margin:0; color:#9aa7c7; font-size:11px;">
+                                You're receiving this because you requested information about our services.
+                                <a href="#" style="color:#9aa7c7; text-decoration:underline;">Unsubscribe</a>
+                            </p>
                         </td>
                     </tr>
                 </table>
